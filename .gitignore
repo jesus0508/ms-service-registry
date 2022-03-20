@@ -1,5 +1,7 @@
 LOG_PATH_IS_UNDEFINED/
 *-local.properties
+*-local.yml
+.env
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar

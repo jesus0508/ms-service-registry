@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    image: bootcamp/ms-serviceregistry
+    container_name: msserviceregistry
+    hostname: $EUREKA_HOSTNAME
+    ports:
+      - "${APP_PORT:-9091}:${APP_PORT_CONTAINER:-8081}"
+    environment:
+      SERVER_PORT: $APP_PORT_CONTAINER
+      LOG_PATH: $LOG_PATH
+      EUREKA_HOSTNAME: $EUREKA_HOSTNAME
+    networks:
+      - main-network
+      
+networks:
+  main-network:
+    external:
+      name: $NETWORK_NAME
